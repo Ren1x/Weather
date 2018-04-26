@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Weather</title>
+	<link rel="stylesheet" href="css/main.css">
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif|Poppins" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+<body class="mainWeather">
+	<header class="jumbotron-fluid text-center py-3">
+		<div class="container">
+			<h1 class="display-1">WEATHER</h1>
+			<p class="lead">find out your weather</p>
+		</div>
+	</header>
+	<nav class="navbar navbar-expand fixed-bottom navbar-dark bg-dark py-0">
+		<div class="collapse navbar-collapse justify-content-end">
+			<a href="#" class="nav-item mr-auto"><span id="copy" class="navbar-text">&copy;Ren1x</span></a>
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a href="#" class="nav-link"><img src="https://findicons.com/files/icons/2653/android_icons_2/600/weather.png" alt="" width="25" height="25">Weather</a>
+				</li>
+				<li class="nav-item active">
+					<a href="#" class="nav-link">Link editor</a>
+				</li>
+				<li class="nav-item active">
+					<a href="#" class="nav-link">About</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<main role="main">
+		<article class="text-center my-3 py-2">
+			<h4 class="py-3">Введите город</h4>
+			<form class="form-inline justify-content-center">
+				<div class="form-group success">
+					<input id="userInput" class="form-control" type="text">
+				</div>
+				<button id="search" class="btn btn-info ml-2" type="submit">Поиск</button>
+			</form>
+			<div id="sectionContainer" class="container my-4 py-3 text-center">
+				<h3 id="city"></h3>
+				<div class="row mb-2">
+					<section id="weather1" class="col-md-6 col-12 offset-md-3 pt-2"></section>
+				</div>
+				<div class="row justify-content-center">
+					<section id="weather2" class="col-md-3 col-5 pt-2 m-1"></section>
+					<section id="weather3" class="col-md-3 col-5 pt-2 m-1"></section>
+					<section id="weather4" class="col-md-3 col-5 pt-2 m-1"></section>
+					<section id="weather5" class="col-md-3 col-5 pt-2 m-1"></section>
+					<section id="weather6" class="col-md-3 col-5 pt-2 m-1"></section>
+					<section id="weather7" class="col-md-3 col-5 pt-2 m-1"></section>
+				</div>
+			</div>
+
+		</article>
+	</main>
+	<script src="jquery.js"></script>
+	<script src="weather.js"></script>
+	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+</body>
+</html>
