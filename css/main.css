@@ -4,6 +4,7 @@ body {
 	background-color: #bedfe4 !important;
 }
 
+								/* Смена bg в зависимости от погоды */
 .mainWeather {
 	background: url("../images/background-images/main.jpg");
 	background-color: #bedfe4;
@@ -18,7 +19,7 @@ body {
 .sun {
 	background: url("../images/background-images/sun.jpg") no-repeat;
 	background-position: center center;
-	background-size: auto;
+	background-size: cover;
 }
 
 .cloudy {
@@ -26,22 +27,22 @@ body {
 	background-size: cover;
 	color: white;
 }
-/* no-repeat*/
+
 .rain {
 	background: url("../images/background-images/rain.jpg") no-repeat;
 	background-size: cover;
 	color: white;
-}
-.rainBorder {
-	border: 1px solid #3981C5E5;
 }
 
 .defaultWeather {
 	background: url("../images/background-images/default.jpg");
 	background-size: cover;
 }
+								/* END */
+
+								/* WEATHER BLOCK */
 #sectionContainer {
-	display: none;
+	display: none;	/*блок изначально скрыт. появляется после поиска*/
 }
 
 #sectionContainer section {
@@ -60,14 +61,15 @@ body {
 }
 
 .temperature {
-	font-size: 1.5rem;
+	font-size: 1.5rem; /* Размер температуры */
 }
 
 section .verticalHt {
 	border-right: 1px solid #d5b410;
 }
+								/* END */
 
-/* Ren1x copyright */
+								/* Ren1x copyright в Nav*/
 #copy {
 	font-size: 0.7rem;
 }

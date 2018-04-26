@@ -1,5 +1,8 @@
 $(document).ready(() => {
 	const $userInput = $("#userInput");
+	// общий блок погоды
+	const $sectionContainer = $("#sectionContainer");
+	// блоки с погодой
 	const $section = [
 		$("#weather1"),
 		$("#weather2"),
@@ -10,10 +13,10 @@ $(document).ready(() => {
 		$("#weather7")
 	];
 	const $search = $("#search");
-	const $sectionContainer = $("#sectionContainer");
 	const $dayOfWeek = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
 
-	async function weather() {
+	//запрашивает данные о погоде
+	const weather = async () => {
 		let urlApixui =
 			"http://api.apixu.com/v1/forecast.json?key=a9ac3c69cdb8499ead524551172606&q=" +
 			$userInput.val() +
@@ -22,46 +25,54 @@ $(document).ready(() => {
 			let response = await fetch(urlApixui);
 			if (response.ok) {
 				let jsonResponse = await response.json();
-				let days = jsonResponse.forecast.forecastday;
 				console.log(jsonResponse);
 				return jsonResponse;
 			}
 		} catch (error) {
-			console.log(error);
+			alert(error);
 		}
-	}
-	function createWeather(weatherData) {
-		//для сокращения кода в перебора в следующей функции
+	};
+
+	const createBlockOfWeather = weatherData => {
+		//для сокращения кода в переборе следующей функции
 		let days = weatherData.forecast.forecastday;
+
 		//Создание блоков погоды с днями недели
-		createOtherWeather(weatherData, days);
+		addWeatherOnBlock(weatherData, days);
 		// Блок с погодой появляется
-		$sectionContainer.fadeIn(700);
+		$sectionContainer.show(500);
+
 		return weatherData.current.condition.text;
-	}
+	};
 
-	function dinamicBackground(condition) {
-		$("body").removeClass();
-		let newCondition = condition.toLowerCase();
-		if (
-			~newCondition.indexOf("дожд") ||
-			~newCondition.indexOf("гроз") ||
-			~newCondition.indexOf("морось")
-		) {
-			$("body").addClass("rain");
-		} else if (~newCondition.indexOf("облачн")) {
-			$("body").addClass("cloudy");
-		} else if (
-			~newCondition.indexOf("ясн") ||
-			~newCondition.indexOf("солнечн")
-		) {
-			$("body").addClass("sun");
-		} else {
-			$("body").addClass("defaultWeather");
-		}
-	}
+	const addWeatherOnBlock = (weatherData, days) => {
+		$section.forEach((section, i) => {
+			let info;
+			// основной блок?
+			i === 0
+				? section.append(addMainBlockWeather(weatherData, days))
+				: (info =
+						'<img src="http:' +
+						days[i].day.condition.icon +
+						'">' +
+						"<p class='d-none d-md-block'>" +
+						days[i].day.condition.text +
+						"</p>" +
+						"<p> <span class='temperature'>" +
+						days[i].day.maxtemp_c +
+						"&deg; / " +
+						days[i].day.mintemp_c +
+						"&deg;</span></p>" +
+						"<h6>" +
+						$dayOfWeek[new Date(days[i].date).getDay()] +
+						" (" +
+						days[i].date.slice(5).replace("-", ".") +
+						")</h6>");
+			section.append(info);
+		});
+	};
 
-	function createMainWeather(weatherData, days) {
+	const addMainBlockWeather = (weatherData, days) => {
 		let currentDay =
 			"<div class='container'>" +
 			"<div class='row'>" +
@@ -100,42 +111,43 @@ $(document).ready(() => {
 			"</div>" +
 			"</div>";
 		return currentDay;
-	}
+	};
 
-	function createOtherWeather(weatherData, days) {
-		let info;
-		$section.forEach((section, i) => {
-			i === 0
-				? section.append(createMainWeather(weatherData, days))
-				: (info =
-						'<img src="http:' +
-						days[i].day.condition.icon +
-						'">' +
-						"<p class='d-none d-md-block'>" +
-						days[i].day.condition.text +
-						"</p>" +
-						"<p> <span class='temperature'>" +
-						days[i].day.maxtemp_c +
-						"&deg; / " +
-						days[i].day.mintemp_c +
-						"&deg;</span></p>" +
-						"<h6>" +
-						$dayOfWeek[new Date(days[i].date).getDay()] +
-						" (" +
-						days[i].date.slice(5).replace("-", ".") +
-						")</h6>");
-			section.append(info);
-		});
-	}
+	const changeBackground = condition => {
+		$("body").removeClass();
+		let newCondition = condition.toLowerCase();
+		if (
+			~newCondition.indexOf("дожд") ||
+			~newCondition.indexOf("гроз") ||
+			~newCondition.indexOf("морось")
+		) {
+			$("body").addClass("rain");
+		} else if (~newCondition.indexOf("облачн")) {
+			$("body").addClass("cloudy");
+		} else if (
+			~newCondition.indexOf("ясн") ||
+			~newCondition.indexOf("солнечн")
+		) {
+			$("body").addClass("sun");
+		} else {
+			$("body").addClass("defaultWeather");
+		}
+	};
 
 	function executeSearch() {
-		$sectionContainer.fadeOut(100);
+		$sectionContainer.hide(500);
 		$section.forEach(section => section.empty());
 
 		weather()
-			.then(weather => createWeather(weather))
-			.then(condition => dinamicBackground(condition));
+			.then(weather => createBlockOfWeather(weather))
+			.then(condition => changeBackground(condition));
 
+		nameOfCity();
+
+		return false;
+	}
+
+	const nameOfCity = () => {
 		let cityName =
 			$userInput
 				.val()
@@ -143,8 +155,7 @@ $(document).ready(() => {
 				.toUpperCase() + $userInput.val().slice(1);
 		$("#city").text(cityName);
 		$userInput.val("");
-		return false;
-	}
+	};
 
 	$search.click(executeSearch);
 });

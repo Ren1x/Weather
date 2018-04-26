@@ -9,12 +9,14 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 </head>
 <body class="mainWeather">
+<!-- 	HEADER -->
 	<header class="jumbotron-fluid text-center py-3">
 		<div class="container">
 			<h1 class="display-1">WEATHER</h1>
 			<p class="lead">find out your weather</p>
 		</div>
 	</header>
+<!-- 	NAVIGATION (fixed bottom) -->
 	<nav class="navbar navbar-expand fixed-bottom navbar-dark bg-dark py-0">
 		<div class="collapse navbar-collapse justify-content-end">
 			<a href="#" class="nav-item mr-auto"><span id="copy" class="navbar-text">&copy;Ren1x</span></a>
@@ -31,6 +33,7 @@
 			</ul>
 		</div>
 	</nav>
+<!-- 	MAIN (searching bar & WEATHER blocks) -->
 	<main role="main">
 		<article class="text-center my-3 py-2">
 			<h4 class="py-3">Введите город</h4>
@@ -54,9 +57,9 @@
 					<section id="weather7" class="col-md-3 col-5 pt-2 m-1"></section>
 				</div>
 			</div>
-
 		</article>
 	</main>
+<!-- 	SCRIPTS -->
 	<script src="jquery.js"></script>
 	<script src="weather.js"></script>
 	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
