@@ -88,13 +88,22 @@ section .verticalHt {
 	font-size: 0.7rem;
 }
 
+#cityError {
+	top: 88%;					/* Отступ ошибки от поискового инпута */
+}
+
+#searchForm {
+	position: relative;			/* Родитель всплывающей ошибки */
+}
 
 @media only screen and (max-width: 760px) {
 	#some-element {				 /* Проверка с чего зашел пользователь */
 		display: none;
 	}
+}
 
-	#cityError {
+@media only screen and (max-width: 575px) {
+		#cityError {
 		position: relative;  	/* Всплывающая ошибка появляляется под поиском */
 	}
 }

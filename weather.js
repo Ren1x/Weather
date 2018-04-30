@@ -197,7 +197,3 @@ $(document).ready(() => {
 
 	$search.click(executeSearch);
 });
-
-// if(isMobile.matches) {
-// 	alert('fddf');
-// }
