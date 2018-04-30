@@ -2,21 +2,21 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Weather</title>
 	<link rel="stylesheet" href="css/main.css">
 	<link href="https://fonts.googleapis.com/css?family=PT+Serif|Poppins" rel="stylesheet">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 </head>
 <body class="mainWeather">
-<!-- 	HEADER -->
+	<!-- 	HEADER -->
 	<header class="jumbotron-fluid text-center py-3">
 		<div class="container">
 			<h1 class="display-1">WEATHER</h1>
 			<p class="lead">find out your weather</p>
 		</div>
 	</header>
-<!-- 	NAVIGATION (fixed bottom) -->
+	<!-- 	NAVIGATION (fixed bottom) -->
 	<nav class="navbar navbar-expand fixed-bottom navbar-dark bg-dark py-0">
 		<div class="collapse navbar-collapse justify-content-end">
 			<a href="#" class="nav-item mr-auto"><span id="copy" class="navbar-text">&copy;Ren1x</span></a>
@@ -33,20 +33,24 @@
 			</ul>
 		</div>
 	</nav>
-<!-- 	MAIN (searching bar & WEATHER blocks) -->
+	<!-- 	MAIN (searching bar & WEATHER blocks) -->
 	<main role="main">
 		<article class="text-center my-3 py-2">
 			<h4 class="py-3">Введите город</h4>
-			<form class="form-inline justify-content-center">
-				<div class="form-group success">
+			<form class="form-inline needs-validation justify-content-center">
+				<div id="tes" class="form-group success center">
 					<input id="userInput" class="form-control" type="text">
+					<small id="cityError" class="invalid-tooltip">
+						Такого города нет.
+					</small>
+					<button id="search" class="btn btn-info ml-2 my-2" type="submit">Поиск</button>
 				</div>
-				<button id="search" class="btn btn-info ml-2" type="submit">Поиск</button>
 			</form>
+
 			<div id="sectionContainer" class="container my-4 py-3 text-center">
 				<h3 id="city"></h3>
 				<div class="row mb-2">
-					<section id="weather1" class="col-md-6 col-12 offset-md-3 pt-2"></section>
+					<section id="weather1" class="col-md-6 col-10 offset-1 offset-md-3"></section>
 				</div>
 				<div class="row justify-content-center">
 					<section id="weather2" class="col-md-3 col-5 pt-2 m-1"></section>
@@ -59,7 +63,7 @@
 			</div>
 		</article>
 	</main>
-<!-- 	SCRIPTS -->
+	<!-- 	SCRIPTS -->
 	<script src="jquery.js"></script>
 	<script src="weather.js"></script>
 	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
