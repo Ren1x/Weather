@@ -1,6 +1,7 @@
 body {
 	transition: all 1s ease-in-out;
 	overflow-y: scroll;
+	height: auto;
 }
 
 #userInput {
@@ -10,8 +11,9 @@ body {
 }
 
 .mainStyle {
-	background: url("../images/background-images/main.jpg");
-	background-color: #B3DADF;
+	background: url("../images/background-images/mb.jpg");
+	background-color: #3E495A;
+	color: white;
 }
 
 								/* Ren1x copyright в Nav*/

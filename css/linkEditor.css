@@ -1,3 +1,8 @@
 #changedLink {
 	display: none;
+	border: 2px solid #edc911;
+	-webkit-box-shadow: 1px 0px 10px 0px rgba(160, 114, 176, 0.9058823529411765);
+	-moz-box-shadow: 1px 0px 10px 0px rgba(160, 114, 176, 0.9058823529411765);
+	box-shadow: 1px 0px 10px 0px rgba(160, 114, 176, 0.9058823529411765);
+	overflow-wrap: break-word;
 }

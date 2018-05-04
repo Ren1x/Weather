@@ -109,7 +109,7 @@ $(document).ready(() => {
 			"<p>" +
 			days[0].day.condition.text +
 			"</p>" +
-			"<h6>Сегодня " +
+			"<h6 class='align-self-end'>Сегодня " +
 			$dayOfWeek[new Date().getDay()] +
 			" (" +
 			days[0].date.slice(5).replace("-", ".") +

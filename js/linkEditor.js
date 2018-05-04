@@ -1,13 +1,15 @@
 $(document).ready(() => {
-	const $expandBtn = $("#expandBtn");
 	const $userInput = $("#userInput");
-	const $changedLink = $("#changedLink");
+	const $executeBtn = $("#executeBtn"); 	// Блок с кнопками, для проверки нажатой
+	const $expandBtn = $("#expandBtn");
 	const $shortenBtn = $("#shortenBtn");
-	const $executeBtn = $("#executeBtn");
+	const $changedLink = $("#changedLink"); // Блок с выводом новой ссылки
 
+	// Ключ API с адрессом
 	const apiKey = "AIzaSyDBTieLwd8CKwlWX_lbGNjLWmYhwl81ycQ";
 	const url = "https://www.googleapis.com/urlshortener/v1/url";
 
+	// Функция для получения расширенной ссылки
 	const getExpandLink = () => {
 		let urlToShorten =
 			"https://www.googleapis.com/urlshortener/v1/url?key=" +
@@ -25,13 +27,16 @@ $(document).ready(() => {
 			dataType: "json"
 		})
 			.done(function(response) {
-				$changedLink.append(response.longUrl);
+				$changedLink.append(
+					`<h5>Расширенная ссылка:</h5> ${response.longUrl}`
+				);
 			})
 			.fail(function() {
-				$changedLink.append("Ссылка уже расширена");
+				$changedLink.append("<h5>Введите ссылку для расширения</h5>");
 			});
 	};
 
+	// Функция для получения короткой ссылки
 	const getShortenLink = () => {
 		const urlToExpand = url + "?key=" + apiKey;
 		let urlTo = $userInput.val();
@@ -44,22 +49,25 @@ $(document).ready(() => {
 		})
 			.done(function(response) {
 				console.log(response);
-				$changedLink.append(response.id);
+				$changedLink.append(
+					`<h5>Укороченная ссылка:</h5> ${response.id}`
+				);
 			})
 			.fail(function() {
-				$changedLink.append("Ссылка уже укорочена");
+				$changedLink.append("<h5>Введите ссылку для сокращения</h5>");
 			});
 	};
 
+
 	const shortenLinkEx = () => {
-		if (!$userInput.val()) return false;
+		if (!$userInput.val()) return false; //Отмена, если поле ввода пустое
 
 		getShortenLink();
 		$changedLink.fadeIn();
 	};
 
 	const expandExecute = () => {
-		if (!$userInput.val()) return false;
+		if (!$userInput.val()) return false; //Отмена, если поле ввода пустое
 
 		getExpandLink();
 		$changedLink.fadeIn();
