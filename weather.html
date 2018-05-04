@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Weather</title>
-	<link rel="stylesheet" href="css/main.css">
 	<link href="https://fonts.googleapis.com/css?family=PT+Serif|Poppins" rel="stylesheet">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/weather.css">
 </head>
-<body class="mainWeather">
+<body class="mainStyle">
 	<!-- 	HEADER -->
 	<header class="jumbotron-fluid text-center py-3">
 		<div class="container">
@@ -17,22 +18,22 @@
 		</div>
 	</header>
 	<!-- 	NAVIGATION (fixed bottom) -->
-	<nav class="navbar navbar-expand fixed-bottom navbar-dark bg-dark py-0">
-		<div class="collapse navbar-collapse justify-content-end">
-			<a href="#" class="nav-item mr-auto"><span id="copy" class="navbar-text">&copy;Ren1x</span></a>
-			<ul class="navbar-nav">
-				<li class="nav-item">
-					<a href="#" class="nav-link"><img src="https://findicons.com/files/icons/2653/android_icons_2/600/weather.png" alt="" width="25" height="25">Weather</a>
-				</li>
-				<li class="nav-item active">
-					<a href="#" class="nav-link">Link editor</a>
-				</li>
-				<li class="nav-item active">
-					<a href="#" class="nav-link">About</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
+		<nav class="navbar navbar-expand fixed-bottom navbar-dark bg-dark py-0">
+			<div class="collapse navbar-collapse justify-content-end">
+				<a href="#" class="nav-item mr-auto"><span id="copy" class="navbar-text">&copy;Ren1x</span></a>
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a href="#" class="nav-link active"><img src="images/icons/weather.png" alt="" class="mx-1 mb-1" width="25" height="25">Weather</a>
+					</li>
+					<li class="nav-item">
+						<a href="linkEditor.html" class="nav-link"><img src="images/icons/link.png" class="mx-1 mb-1" alt="" width="15" height="15">Link editor</a>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link">About</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
 	<!-- 	MAIN (searching bar & WEATHER blocks) -->
 	<main role="main">
 		<article class="text-center my-3 py-2">
@@ -64,8 +65,9 @@
 		</article>
 	</main>
 	<!-- 	SCRIPTS -->
-	<script src="jquery.js"></script>
-	<script src="weather.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap/bootstrap.bundle.min.js"></script>
+	<script src="js/weather.js"></script>
 	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 </body>
 </html>

@@ -183,6 +183,7 @@ $(document).ready(() => {
 	};
 
 	const executeSearch = () => {
+		console.log('fddf');
 		clearStyle();
 
 		weather()

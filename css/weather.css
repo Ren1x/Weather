@@ -1,0 +1,90 @@
+										/* Смена bg в зависимости от погоды */
+										/* Стили для мониторов */
+
+.snow {
+	background: url("../images/background-images/snow.jpg");
+	background-size: cover;
+	color: white;
+}
+
+.sun {
+	background: url("../images/background-images/sun.jpg") no-repeat;
+	background-size: cover;
+}
+
+.cloudy {
+	background: url("../images/background-images/cloudy.jpg") no-repeat;
+	background-size: cover;
+	color: white;
+}
+.rain {
+	background: url("../images/background-images/rain.jpg") no-repeat;
+	background-size: cover;
+	color: white;
+}
+
+										/* Стили для мобильных устройств */
+
+.mobile_snow {
+	background-color: #aab9baff;
+}
+
+.mobile_sun {
+	background-color: #fcfc8ce9;
+}
+
+.mobile_cloudy {
+	background-color: #6c6e359f;
+}
+
+.mobile_rain {
+	background-color: #3369a2d2;
+}
+
+.defaultWeather {
+	background: url("../images/background-images/default.jpg");
+	background-size: cover;
+}
+										/* END */
+
+										/* WEATHER BLOCK */
+#sectionContainer {
+	display: none;						/*блок изначально скрыт. появляется после поиска*/
+}
+
+#sectionContainer section {
+	border: 1px solid #edc911;
+	border-radius: 5px;
+	-webkit-box-shadow: 1px 0px 10px 0px rgba(160, 114, 176, 0.9058823529411765);
+	-moz-box-shadow: 1px 0px 10px 0px rgba(160, 114, 176, 0.9058823529411765);
+	box-shadow: 1px 0px 10px 0px rgba(160, 114, 176, 0.9058823529411765);
+}
+
+#sectionContainer section p {
+	font-family: "Poppins", sans-serif;
+	font-size: 1rem;
+}
+
+.temperature {
+	font-size: 1.5rem; 					/* Размер температуры */
+}
+
+section .verticalHt {
+	border-right: 1px solid #d5b410;
+}
+										/* END */
+
+#cityError {
+	top: 88%; 							/* Отступ ошибки от поискового инпута */
+}
+
+#searchForm {
+	position: relative;					 /* Родитель всплывающей ошибки */
+}
+
+
+@media only screen and (max-width: 575px) {
+	#cityError {
+		position: relative; 			/* Всплывающая ошибка появляляется под поиском */
+	}
+}
